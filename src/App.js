@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import "./App.css";
-import Card from "./containers/Card";
+import Routes from "./routes.js";
+import Header from "./containers/Header";
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <Card />
+        <Header />
+        <Routes />
       </div>
     );
   }

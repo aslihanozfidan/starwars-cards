@@ -2,28 +2,48 @@ import React from "react";
 import "./style.css";
 import Carousel from "../../components/Carousel";
 
-const Card = props =>
-  props.people.map((person, i) => (
-    <div className="Card" key={i}>
-      <div className="front-side">
-        <div
-          className="overlay"
-          style={{ backgroundImage: `url(http://localhost:5000/${i}.jpg)` }}
-        />
-        <h4>{person.name}</h4>
-        <hr />
+const Card = props => {
+  const items = [];
+  let i = -1;
+  let propertyWithSpace = "";
+  props.items.forEach(element => {
+    i++
+    items[i] = [];
+    for (var property in element) {
+      property !== "homeworld" &&
+      property !== "films" &&
+      property !== "species" &&
+      property !== "vehicles" &&
+      property !== "starships" &&
+      property !== "url" &&
+      property !== "edited" &&
+      property !== "created" &&
+      property !== "residents" ? (
+        property.includes("_") ? propertyWithSpace = property.replace("_", " ") : propertyWithSpace = property,
+        console.log(property, element[property]),
+        items[i].push(<li key={i + property}>{propertyWithSpace} : {element[property]}</li>))
+      : '';
+    }
+  });
+  console.log(items)
+  return (
+    props.items.map((item, i) => (
+      <div className="Card" key={i}>
+        <div className="front-side">
+          <div
+            className="overlay"
+            style={{ backgroundImage: `url(http://localhost:5000/${props.type}/${i}.jpg)` }}
+          />
+          <h4>{item.name}</h4>
+          <hr />
+        </div>
+        <div className="back-side">
+          <ul>
+            {items[i]}
+          </ul>
+        </div>
       </div>
-      <div className="back-side">
-        <ul>
-          <li>Birth Year: {person.birth_year}</li>
-          <li>Gender: {person.gender}</li>
-          <li>Height: {person.height}</li>
-          <li>Eye Color: {person.eye_color}</li>
-          <li>Hair Color: {person.hair_color}</li>
-          <li>Skin Color: {person.skin_color}</li>
-        </ul>
-      </div>
-    </div>
-  ));
+    )));
+}
 
 export default Card;

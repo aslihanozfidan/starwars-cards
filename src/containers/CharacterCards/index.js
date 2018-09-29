@@ -5,7 +5,7 @@ import Card from "../../components/Card";
 
 const axios = require("axios");
 
-class CardContainer extends Component {
+class CharacterCards extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -18,7 +18,7 @@ class CardContainer extends Component {
       .get("https://swapi.co/api/people")
       .then(response => {
         this.setState({ people: response.data.results });
-        console.log(this.state.people, "in people");
+       // console.log(this.state.people, "in people");
       })
       .catch(error => {
         console.error(error, "in people");
@@ -32,17 +32,17 @@ class CardContainer extends Component {
   render() {
     return (
       <div className="flex card-container"> 
-        <Card people={this.state.people} />
+        <Card items={this.state.people} type="characters" />
       </div>
     );
   }
 }
 
-CardContainer.defaultProps = {
+CharacterCards.defaultProps = {
   people: []
 };
-CardContainer.propTypes = {
+CharacterCards.propTypes = {
   people: PropTypes.array
 };
 
-export default CardContainer;
+export default CharacterCards;
