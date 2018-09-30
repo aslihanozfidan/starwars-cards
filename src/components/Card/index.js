@@ -1,5 +1,6 @@
 import React from "react";
 import "./style.css";
+import DetailButton from "../../components/DetailButton";
 import Carousel from "../../components/Carousel";
 
 const Card = props => {
@@ -41,6 +42,7 @@ const Card = props => {
           <ul>
             {items[i]}
           </ul>
+          <DetailButton url={`/${props.type}/${i}`} />
         </div>
       </div>
     )));
