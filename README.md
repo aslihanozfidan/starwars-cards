@@ -12,10 +12,7 @@ npm start
 ## API Run
 
 ```
-cd src/api
-```
-```
-go run main.go
+npm run api
 ```
 
 ## Updating to New Releases
