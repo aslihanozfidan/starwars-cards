@@ -1,0 +1,14 @@
+.detail-button {
+  position: absolute;
+  width: 100px;
+  height: 40px;
+  bottom: 0;
+  right: 0;
+  line-height: 40px;
+  border-top-left-radius: 10px;
+  color: #ffffff;
+  border-top: 1px solid #ffffff;
+  border-left: 1px solid #ffffff;
+  text-transform: uppercase;
+  text-decoration: none;
+}
