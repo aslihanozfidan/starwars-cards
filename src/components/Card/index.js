@@ -11,21 +11,21 @@ const Card = props => {
     items[i] = [];
     for (var property in element) {
       property !== "homeworld" &&
-      property !== "films" &&
-      property !== "species" &&
-      property !== "vehicles" &&
-      property !== "starships" &&
-      property !== "url" &&
-      property !== "edited" &&
-      property !== "created" &&
-      property !== "residents" ? (
-        property.includes("_") ? propertyWithSpace = property.replace("_", " ") : propertyWithSpace = property,
-        console.log(property, element[property]),
-        items[i].push(<li key={i + property}>{propertyWithSpace} : {element[property]}</li>))
-      : '';
+        property !== "films" &&
+        property !== "species" &&
+        property !== "vehicles" &&
+        property !== "starships" &&
+        property !== "url" &&
+        property !== "edited" &&
+        property !== "created" &&
+        property !== "residents" &&
+        property !== "pilots"  &&
+        property !== "people" ? (
+          property.includes("_") ? propertyWithSpace = property.replace("_", " ") : propertyWithSpace = property,
+          items[i].push(<li key={i + property}>{propertyWithSpace} : {element[property]}</li>)
+        ) : "";
     }
   });
-  console.log(items)
   return (
     props.items.map((item, i) => (
       <div className="Card" key={i}>

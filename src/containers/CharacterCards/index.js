@@ -33,8 +33,6 @@ class CharacterCards extends Component {
   };
 
   render() {
-    console.log(this.state.loading)
-    console.log(this.state.people)
     let cardArea = this.state.loading ? <Loading /> : <Card items={this.state.people} type="characters" />;
     return (
       <div className="flex card-container">
