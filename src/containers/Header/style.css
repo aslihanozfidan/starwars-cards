@@ -1,6 +1,8 @@
 header {
+  position: relative;
   width: 100%;
-  background-color: transparent;
+  background-color: #ffffff;
+  z-index: 99;
 }
 header nav ul {
   width: 100%;
