@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import "./style.css";
 import Card from "../../components/Card";
+import Loading from "../../components/Loading";
 
 const axios = require("axios");
 
@@ -9,16 +10,18 @@ class CharacterCards extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      people: []
+      people: [],
+      loading: false
     };
   }
 
   getPeople = () => {
+    this.setState({ loading: true });
     axios
       .get("https://swapi.co/api/people")
       .then(response => {
-        this.setState({ people: response.data.results });
-       // console.log(this.state.people, "in people");
+        this.setState({ people: response.data.results, loading: false });
+        // console.log(this.state.people, "in people");
       })
       .catch(error => {
         console.error(error, "in people");
@@ -30,9 +33,12 @@ class CharacterCards extends Component {
   };
 
   render() {
+    console.log(this.state.loading)
+    console.log(this.state.people)
+    let cardArea = this.state.loading ? <Loading /> : <Card items={this.state.people} type="characters" />;
     return (
-      <div className="flex card-container"> 
-        <Card items={this.state.people} type="characters" />
+      <div className="flex card-container">
+        {cardArea}
       </div>
     );
   }
