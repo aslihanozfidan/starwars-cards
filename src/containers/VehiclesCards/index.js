@@ -15,13 +15,13 @@ class VehiclesCards extends Component {
     };
   }
 
-  getvehicles = () => {
+  getVehicles = () => {
     this.setState({ loading: true });
     axios
       .get("https://swapi.co/api/vehicles")
       .then(response => {
         this.setState({ vehicles: response.data.results, loading: false });
-        // console.log(this.state.vehicles, "in vehicles");
+        //console.log(this.state.vehicles, "in vehicles");
       })
       .catch(error => {
         console.error(error, "in vehicles");
@@ -29,11 +29,15 @@ class VehiclesCards extends Component {
   };
 
   componentDidMount = () => {
-    this.getvehicles();
+    this.getVehicles();
   };
 
   render() {
-    let cardArea = this.state.loading ? <Loading /> : <Card items={this.state.vehicles} type="vehicles" />;
+    let cardArea = this.state.loading ?
+      <Loading /> :
+      <Card
+        items={this.state.vehicles}
+        type="vehicles" />;
     return (
       <div className="flex card-container">
         {cardArea}
