@@ -8,6 +8,16 @@ npm install
 ```
 npm start
 ```
+
+## API Run
+
+```
+cd src/api
+```
+```
+go run main.go
+```
+
 ## Updating to New Releases
 
 
