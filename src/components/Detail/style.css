@@ -1,0 +1,54 @@
+.detail {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.detail ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  margin: 0;
+  padding: 20px 50px;
+  list-style: none;
+  text-align: left;
+  line-height: 24px;
+  font-size: 16px;
+  text-transform: capitalize;
+  text-align: center;
+}
+
+.detail ul li {
+  width: 180px;
+  margin-top: 20px;
+}
+
+.detail .blur {
+  position: fixed;
+  width: calc(100% + 50px);
+  height: 100%;
+  left: -50px;
+  background-size: cover;
+  background-position: center;
+  filter: blur(15px);
+  background-color: #000000;
+  opacity: .5;
+  z-index: -1;
+}
+
+.detail h4 {
+  font-family: "Star Jedi";
+  font-size: 25px;
+  letter-spacing: 2px;
+  text-transform: lowercase;
+}
+
+.detail hr {
+  height: 4px;
+  background-color: #e8e249;
+  width: 100px;
+  margin: auto;
+  border: none;
+}
