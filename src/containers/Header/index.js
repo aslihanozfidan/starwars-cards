@@ -8,6 +8,9 @@ const Header = () => (
       <ul>
         <li><NavLink to="/characters" activeClassName="active">Characters</NavLink></li>
         <li><NavLink to="/planets" activeClassName="active">Planets</NavLink></li>
+        <li><NavLink to="/starships" activeClassName="active">Starships</NavLink></li>
+        <li><NavLink to="/vehicles" activeClassName="active">Vehicles</NavLink></li>
+        <li><NavLink to="/species" activeClassName="active">Species</NavLink></li>
       </ul>
     </nav>
   </header>
